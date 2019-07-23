@@ -26,7 +26,7 @@ To use the listener add it to your phpunit.xml, defining which test suites shoul
 ```
 <listeners>
     ...
-    <listener class="Tests\DatabaseTestListener">
+    <listener class="Softonic\DatabaseMigrateTestListener\DatabaseMigrateTestListener">
         <arguments>
             <string>Feature</string>
             <string>Integration</string>

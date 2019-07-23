@@ -28,7 +28,7 @@ class DatabaseMigrateTestListener implements TestListener
             return;
         }
 
-        chdir(__DIR__ . '/../../../');
+        chdir(__DIR__ . '/../../../../');
 
         shell_exec('php artisan migrate:refresh --seed');
     }
