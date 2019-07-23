@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="Laravel Request Content Decompress Middleware" tests="3" assertions="6" errors="0" failures="0" skipped="0" time="0.372552">
+    <testsuite name="Softonic\DatabaseMigrateTestListener\Tests\DatabaseMigrateTestListenerTest" file="/app/tests/DatabaseMigrateTestListenerTest.php" tests="3" assertions="6" errors="0" failures="0" skipped="0" time="0.372552">
+      <testcase name="testConstructor" class="Softonic\DatabaseMigrateTestListener\Tests\DatabaseMigrateTestListenerTest" classname="Softonic.DatabaseMigrateTestListener.Tests.DatabaseMigrateTestListenerTest" file="/app/tests/DatabaseMigrateTestListenerTest.php" line="15" assertions="2" time="0.161430"/>
+      <testcase name="testMigrateCommandHasBeenExecutedWhenTestSuiteMatches" class="Softonic\DatabaseMigrateTestListener\Tests\DatabaseMigrateTestListenerTest" classname="Softonic.DatabaseMigrateTestListener.Tests.DatabaseMigrateTestListenerTest" file="/app/tests/DatabaseMigrateTestListenerTest.php" line="24" assertions="2" time="0.200641"/>
+      <testcase name="testMigrateCommandHasNotBeenExecutedWhenTestSuiteDontMatches" class="Softonic\DatabaseMigrateTestListener\Tests\DatabaseMigrateTestListenerTest" classname="Softonic.DatabaseMigrateTestListener.Tests.DatabaseMigrateTestListenerTest" file="/app/tests/DatabaseMigrateTestListenerTest.php" line="37" assertions="2" time="0.010481"/>
+    </testsuite>
+  </testsuite>
+</testsuites>
