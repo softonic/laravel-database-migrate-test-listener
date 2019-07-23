@@ -2,9 +2,11 @@
 
 namespace Softonic\DatabaseMigrateTestListener;
 
+use Composer\Autoload\ClassLoader;
 use PHPUnit\Framework\TestListener;
 use PHPUnit\Framework\TestListenerDefaultImplementation;
 use PHPUnit\Framework\TestSuite;
+use ReflectionClass;
 
 class DatabaseMigrateTestListener implements TestListener
 {
@@ -28,8 +30,9 @@ class DatabaseMigrateTestListener implements TestListener
             return;
         }
 
-        chdir(__DIR__ . '/../../../../');
-
+        $reflection   = new ReflectionClass(ClassLoader::class);
+        $appDirectory = dirname($reflection->getFileName(), 3);
+        chdir($appDirectory);
         shell_exec('php artisan migrate:refresh --seed');
     }
 }
