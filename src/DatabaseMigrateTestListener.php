@@ -14,15 +14,23 @@ class DatabaseMigrateTestListener implements TestListener
 
     public $testSuites;
 
-    public function __construct(...$testSuites)
+    public $itShouldSeed;
+
+    public $connection;
+
+    public function __construct(array $testSuites, bool $itShouldSeed, string $connection = 'sqlite')
     {
-        $this->testSuites = $testSuites;
+        $this->testSuites   = $testSuites;
+        $this->itShouldSeed = $itShouldSeed;
+        $this->connection   = $connection;
     }
 
     /**
      * Set up the database for testing.
      *
      * @param TestSuite $suite
+     *
+     * @throws \ReflectionException
      */
     public function startTestSuite(TestSuite $suite): void
     {
@@ -33,6 +41,7 @@ class DatabaseMigrateTestListener implements TestListener
         $reflection   = new ReflectionClass(ClassLoader::class);
         $appDirectory = dirname($reflection->getFileName(), 3);
         chdir($appDirectory);
-        shell_exec('php artisan migrate:refresh --seed');
+        $seed = $this->itShouldSeed ? '--seed' : '';
+        shell_exec("php artisan migrate:refresh --database {$this->connection} $seed");
     }
 }

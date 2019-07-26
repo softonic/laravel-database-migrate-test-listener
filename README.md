@@ -21,22 +21,30 @@ composer require --dev softonic/laravel-database-migrate-test-listener
 Documentation
 -------
 
-To use the listener add it to your phpunit.xml, defining which test suites should use it
+To use the listener add it to your phpunit.xml, defining on which test suites it should be activated, if it should seed data and the database connection to use.
 
 ```
 <listeners>
     ...
     <listener class="Softonic\DatabaseMigrateTestListener\DatabaseMigrateTestListener">
         <arguments>
-            <string>Feature</string>
-            <string>Integration</string>
+            <array>
+              <element key="0">
+                <string>Feature</string>
+              </element>
+              <element key="1">
+                <string>Integration</string>
+              </element>
+            </array>
+            <bool>true</bool> <!-- True if you want to seed data -->
+            <string>sqlite</string> <!-- Database connection -->
         </arguments>
     </listener>
     ...
 </listeners>
 ```
 
-From now on before the specified test suite is run, the `migrate:fresh --seed` Laravel command will be executed.
+From now on before the specified test suite is run, the `migrate:fresh` Laravel command will be executed.
 
 Testing
 -------
