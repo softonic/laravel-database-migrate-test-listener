@@ -36,7 +36,7 @@ To use the listener add it to your phpunit.xml, defining on which test suites it
                 <string>Integration</string>
               </element>
             </array>
-            <bool>true</bool> <!-- True if you want to seed data -->
+            <integer>1</integer> <!-- Set 1 if you want to seed data -->
             <string>sqlite</string> <!-- Database connection -->
         </arguments>
     </listener>

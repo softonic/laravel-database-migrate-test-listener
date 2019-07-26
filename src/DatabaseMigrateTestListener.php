@@ -42,6 +42,6 @@ class DatabaseMigrateTestListener implements TestListener
         $appDirectory = dirname($reflection->getFileName(), 3);
         chdir($appDirectory);
         $seed = $this->itShouldSeed ? '--seed' : '';
-        shell_exec("php artisan migrate:refresh --database {$this->connection} $seed");
+        echo shell_exec("php artisan migrate:refresh --database {$this->connection} $seed");
     }
 }
