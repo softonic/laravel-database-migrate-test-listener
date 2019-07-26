@@ -58,7 +58,7 @@ class DatabaseMigrateTestListenerTest extends TestCase
         $listener->startTestSuite($testSuite);
     }
 
-    public function tearDown()
+    public function tearDown(): void
     {
         parent::tearDown();
         Mockery::close();
