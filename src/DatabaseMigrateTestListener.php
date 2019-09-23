@@ -47,7 +47,6 @@ class DatabaseMigrateTestListener implements TestListener
         $seed = $this->itShouldSeed ? '--seed' : '';
         $seeder = $this->itShouldSeed && !empty($this->seeder) ? "--seeder={$this->seeder}" : '';
 
-        var_dump("php artisan migrate:refresh --database {$this->connection} $seed $seeder");
         echo shell_exec("php artisan migrate:refresh --database {$this->connection} $seed $seeder");
     }
 }
