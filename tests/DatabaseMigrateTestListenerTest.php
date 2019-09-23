@@ -19,7 +19,7 @@ class DatabaseMigrateTestListenerTest extends TestCase
         PHPMockery::mock('Softonic\DatabaseMigrateTestListener', 'chdir')
             ->once();
         PHPMockery::mock('Softonic\DatabaseMigrateTestListener', 'shell_exec')
-            ->with('php artisan migrate:refresh --database sqlite ')
+            ->with('php artisan migrate:refresh --database sqlite  ')
             ->once();
         $testSuite = new TestSuite();
         $testSuite->setName('Feature');
@@ -30,7 +30,7 @@ class DatabaseMigrateTestListenerTest extends TestCase
     {
         $listener = new DatabaseMigrateTestListener(['Feature'], true);
         PHPMockery::mock('Softonic\DatabaseMigrateTestListener', 'shell_exec')
-            ->with('php artisan migrate:refresh --database sqlite --seed')
+            ->with('php artisan migrate:refresh --database sqlite --seed ')
             ->once();
         $testSuite = new TestSuite();
         $testSuite->setName('Feature');
@@ -41,7 +41,7 @@ class DatabaseMigrateTestListenerTest extends TestCase
     {
         $listener = new DatabaseMigrateTestListener(['Feature'], false, 'testing');
         PHPMockery::mock('Softonic\DatabaseMigrateTestListener', 'shell_exec')
-            ->with('php artisan migrate:refresh --database testing ')
+            ->with('php artisan migrate:refresh --database testing  ')
             ->once();
         $testSuite = new TestSuite();
         $testSuite->setName('Feature');
@@ -55,6 +55,22 @@ class DatabaseMigrateTestListenerTest extends TestCase
         PHPMockery::mock('Softonic\DatabaseMigrateTestListener', 'shell_exec')->never();
         $testSuite = new TestSuite();
         $testSuite->setName('Unit');
+        $listener->startTestSuite($testSuite);
+    }
+
+    public function testMigrateCommandHasSpecificSeederShouldStartTheTestSuite()
+    {
+        $listener = new DatabaseMigrateTestListener(
+            ['Feature'],
+            true,
+            'sqlite',
+            '\\App\\Database\\Seeders\\MyNamespace\\DatabaseSeeder'
+        );
+        PHPMockery::mock('Softonic\DatabaseMigrateTestListener', 'shell_exec')
+            ->with('php artisan migrate:refresh --database sqlite --seed --seeder=\\App\\Database\\Seeders\\MyNamespace\\DatabaseSeeder')
+            ->once();
+        $testSuite = new TestSuite();
+        $testSuite->setName('Feature');
         $listener->startTestSuite($testSuite);
     }
 

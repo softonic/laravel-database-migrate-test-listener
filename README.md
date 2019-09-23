@@ -38,6 +38,7 @@ To use the listener add it to your phpunit.xml, defining on which test suites it
             </array>
             <integer>1</integer> <!-- Set 1 if you want to seed data -->
             <string>sqlite</string> <!-- Database connection -->
+            <string>>App\\Database\\Seeds\\Foo\\DatabaseSeeder</string> <!-- Database Seeder -->
         </arguments>
     </listener>
     ...

@@ -18,11 +18,14 @@ class DatabaseMigrateTestListener implements TestListener
 
     public $connection;
 
-    public function __construct(array $testSuites, bool $itShouldSeed, string $connection = 'sqlite')
+    public $seeder;
+
+    public function __construct(array $testSuites, bool $itShouldSeed, string $connection = 'sqlite', string $seeder = null)
     {
         $this->testSuites   = $testSuites;
         $this->itShouldSeed = $itShouldSeed;
         $this->connection   = $connection;
+        $this->seeder       = $seeder;
     }
 
     /**
@@ -42,6 +45,8 @@ class DatabaseMigrateTestListener implements TestListener
         $appDirectory = dirname($reflection->getFileName(), 3);
         chdir($appDirectory);
         $seed = $this->itShouldSeed ? '--seed' : '';
-        echo shell_exec("php artisan migrate:refresh --database {$this->connection} $seed");
+        $seeder = $this->itShouldSeed && !empty($this->seeder) ? "--seeder={$this->seeder}" : '';
+
+        echo shell_exec("php artisan migrate:refresh --database {$this->connection} $seed $seeder");
     }
 }
