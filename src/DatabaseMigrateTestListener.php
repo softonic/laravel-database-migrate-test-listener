@@ -20,7 +20,7 @@ class DatabaseMigrateTestListener implements TestListener
 
     public $seeder;
 
-    public function __construct(array $testSuites, bool $itShouldSeed, string $connection = 'sqlite', string $seeder = '')
+    public function __construct(array $testSuites, bool $itShouldSeed, string $connection = 'sqlite', string $seeder = null)
     {
         $this->testSuites   = $testSuites;
         $this->itShouldSeed = $itShouldSeed;
