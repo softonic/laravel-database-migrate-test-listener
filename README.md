@@ -7,8 +7,8 @@ PHPUnit listener to run Laravel database migrations before each testsuite
 [![Coverage Status](https://img.shields.io/scrutinizer/coverage/g/softonic/laravel-database-migrate-test-listener.svg?style=flat-square)](https://scrutinizer-ci.com/g/softonic/laravel-database-migrate-test-listener/code-structure)
 [![Quality Score](https://img.shields.io/scrutinizer/g/softonic/laravel-database-migrate-test-listener.svg?style=flat-square)](https://scrutinizer-ci.com/g/softonic/laravel-database-migrate-test-listener)
 [![Total Downloads](https://img.shields.io/packagist/dt/softonic/laravel-database-migrate-test-listener.svg?style=flat-square)](https://packagist.org/packages/softonic/laravel-database-migrate-test-listener)
-[![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/softonic/laravel-database-migrate-test-listener.svg?style=flat-square)](http://isitmaintained.com/project/softonic/guzzle-oauth2-middleware "Average time to resolve an issue")
-[![Percentage of issues still open](http://isitmaintained.com/badge/open/softonic/laravel-database-migrate-test-listener.svg?style=flat-square)](http://isitmaintained.com/project/softonic/guzzle-oauth2-middleware "Percentage of issues still open")
+[![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/softonic/laravel-database-migrate-test-listener.svg?style=flat-square)](http://isitmaintained.com/project/softonic/laravel-database-migrate-test-listener "Average time to resolve an issue")
+[![Percentage of issues still open](http://isitmaintained.com/badge/open/softonic/laravel-database-migrate-test-listener.svg?style=flat-square)](http://isitmaintained.com/project/softonic/laravel-database-migrate-test-listener "Percentage of issues still open")
 
 This PHPUnit listener run Laravel migrations before each testsuit
 
